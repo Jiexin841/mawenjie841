@@ -1,0 +1,102 @@
+% ============================================================
+% 片段文件：第 4 章  指数函数与对数函数
+% 由主文件 讲义.tex 通过 \input 调用
+% 注意：本文件不含 \chapter，章标题写在主文件里
+% ============================================================
+
+\section{指数}
+\subsection{根式与分数指数幂}
+\begin{definition}[根式]
+若 $x^n=a$（$n>1$，$n \in \mathbb{N}^*$），则 $x$ 叫做 $a$ 的 $n$ 次方根。当 $n$ 为奇数时，$x=\sqrt[n]{a}$；当 $n$ 为偶数且 $a>0$ 时，$x=\pm\sqrt[n]{a}$。
+\end{definition}
+\begin{definition}[分数指数幂]
+规定正数的正分数指数幂 $a^{\frac{m}{n}}=\sqrt[n]{a^m}$（$a>0$，$m$，$n \in \mathbb{N}^*$，$n>1$）；正数的负分数指数幂 $a^{-\frac{m}{n}}=\dfrac{1}{a^{\frac{m}{n}}}$；$0$ 的正分数指数幂等于 $0$。
+\end{definition}
+\subsection{指数幂的运算性质}
+\begin{definition}[指数幂的运算性质]
+设 $a>0$，$b>0$，$r$，$s \in \mathbb{Q}$：
+\begin{itemize}
+    \item $a^r \cdot a^s=a^{r+s}$；
+    \item $(a^r)^s=a^{rs}$；
+    \item $(ab)^r=a^r b^r$。
+\end{itemize}
+\end{definition}
+\begin{theorem}[对数恒等式]
+设 $a>0$，$a \neq 1$，$N>0$，则 $a^{\log_a N}=N$；又 $\log_a a^b=b$。
+\end{theorem}
+\begin{corollary}[对数换底推论]
+$\log_a b \cdot \log_b a=1$，$\log_a b \cdot \log_b c \cdot \log_c a=1$（$a$、$b$、$c$ 均为正数且不等于 $1$）。
+\end{corollary}
+
+\section{指数函数}
+\subsection{指数函数的概念}
+\begin{definition}[指数函数]
+形如 $y=a^x$（$a>0$ 且 $a \neq 1$）的函数叫做指数函数，其定义域为 $\mathbb{R}$。
+\end{definition}
+\subsection{指数函数的图象与性质}
+\begin{definition}[指数函数的性质]
+指数函数 $y=a^x$（$a>0$，$a \neq 1$）的图象恒过点 $(0,1)$。当 $a>1$ 时，函数在 $\mathbb{R}$ 上单调递增；当 $0<a<1$ 时，函数在 $\mathbb{R}$ 上单调递减。其值域为 $(0,+\infty)$。
+\end{definition}
+\subsection{指数函数的应用}
+\begin{definition}[指数增长模型]
+形如 $y=N(1+p)^x$（$N$ 为初始量，$p$ 为增长率）的函数模型常用于刻画指数增长问题。
+\end{definition}
+
+\section{对数}
+\subsection{对数的概念}
+\begin{definition}[对数]
+若 $a^x=N$（$a>0$，$a \neq 1$），则数 $x$ 叫做以 $a$ 为底 $N$ 的对数，记作 $x=\log_a N$，其中 $a$ 叫做底数，$N$ 叫做真数。特别地，以 $10$ 为底的对数叫常用对数，记作 $\lg N$；以 $\mathrm{e}$ 为底的对数叫自然对数，记作 $\ln N$。
+\end{definition}
+\subsection{对数的运算性质}
+\begin{definition}[对数的运算性质]
+设 $a>0$，$a \neq 1$，$M>0$，$N>0$：
+\begin{itemize}
+    \item $\log_a(MN)=\log_a M+\log_a N$；
+    \item $\log_a \dfrac{M}{N}=\log_a M-\log_a N$；
+    \item $\log_a M^n=n\log_a M$（$n \in \mathbb{R}$）。
+\end{itemize}
+\end{definition}
+\subsection{换底公式}
+\begin{definition}[换底公式]
+$\log_a b=\dfrac{\log_c b}{\log_c a}$（$a>0$，$a \neq 1$，$c>0$，$c \neq 1$，$b>0$）。特别地，$\log_a b=\dfrac{1}{\log_b a}$。
+\end{definition}
+
+\section{对数函数}
+\subsection{对数函数的概念}
+\begin{definition}[对数函数]
+形如 $y=\log_a x$（$a>0$ 且 $a \neq 1$）的函数叫做对数函数，其定义域为 $(0,+\infty)$。
+\end{definition}
+\subsection{对数函数的图象与性质}
+\begin{definition}[对数函数的性质]
+对数函数 $y=\log_a x$（$a>0$，$a \neq 1$）的图象恒过点 $(1,0)$。当 $a>1$ 时，函数在 $(0,+\infty)$ 上单调递增；当 $0<a<1$ 时，函数在 $(0,+\infty)$ 上单调递减。其值域为 $\mathbb{R}$。
+\end{definition}
+\subsection{对数函数的应用}
+\begin{definition}[对数函数的应用]
+对数函数常用于解决与指数增长、溶液酸碱度（$\mathrm{pH}$）、声强级等相关的问题。
+\end{definition}
+
+\section{函数的零点与二分法}
+\subsection{函数的零点及方程的解}
+\begin{definition}[函数的零点]
+对于函数 $y=f(x)$，使 $f(x)=0$ 的实数 $x$ 叫做函数 $y=f(x)$ 的零点。函数的零点就是方程 $f(x)=0$ 的根，也是函数图象与 $x$ 轴交点的横坐标。
+\end{definition}
+\subsection{用二分法求方程的近似解}
+\begin{definition}[二分法]
+对于在区间 $[a,b]$ 上图象连续不断且 $f(a)f(b)<0$ 的函数 $y=f(x)$，通过不断把零点所在区间一分为二，使区间端点逐步逼近零点，进而得到零点近似值的方法叫做二分法。
+\end{definition}
+\begin{theorem}[函数零点存在定理]
+若函数 $y=f(x)$ 在闭区间 $[a,b]$ 上图象连续不断，且 $f(a)f(b)<0$，则存在 $c \in (a,b)$，使 $f(c)=0$，即函数在 $(a,b)$ 内至少有一个零点。
+\end{theorem}
+\begin{corollary}[零点个数与单调性]
+若 $y=f(x)$ 在 $[a,b]$ 上单调且图象连续不断，又 $f(a)f(b)<0$，则 $f(x)$ 在 $(a,b)$ 内有且仅有一个零点。
+\end{corollary}
+
+\section{函数模型及其应用}
+\subsection{不同函数模型的增长差异}
+\begin{definition}[不同函数模型的增长差异]
+当 $x$ 充分大时，增长速度由慢到快依次为：对数函数 $y=\log_a x$（$a>1$）、幂函数 $y=x^n$（$n>0$）、指数函数 $y=a^x$（$a>1$），即“指数爆炸、对数缓慢”。
+\end{definition}
+\subsection{函数模型的选择与应用}
+\begin{definition}[函数模型的选择]
+选择函数模型时，应根据实际问题的增长速度特征，选择与之相符的一次、二次、指数、对数或幂函数模型进行分析和预测。
+\end{definition}

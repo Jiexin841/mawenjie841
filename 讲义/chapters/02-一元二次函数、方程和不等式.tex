@@ -1,0 +1,76 @@
+% ============================================================
+% 片段文件：第 2 章  一元二次函数、方程和不等式
+% 由主文件 讲义.tex 通过 \input 调用
+% 注意：本文件不含 \chapter，章标题写在主文件里
+% ============================================================
+
+\section{等式性质与不等式性质}
+\subsection{等式的基本性质}
+\begin{definition}[等式的基本性质]
+等式具有如下基本性质：
+\begin{itemize}
+    \item 对称性：若 $a=b$，则 $b=a$；
+    \item 传递性：若 $a=b$，$b=c$，则 $a=c$；
+    \item 可加性：若 $a=b$，则 $a+c=b+c$；
+    \item 可乘性：若 $a=b$，则 $ac=bc$；
+    \item 可除性：若 $a=b$ 且 $c \neq 0$，则 $\dfrac{a}{c}=\dfrac{b}{c}$。
+\end{itemize}
+\end{definition}
+\begin{axiom}[实数的有序性]
+任意两个实数 $a$、$b$，$a>b$、$a=b$、$a<b$ 三种关系中有且仅有一种成立。
+\end{axiom}
+\subsection{不等式的基本性质}
+\begin{definition}[不等式的基本性质]
+不等式具有如下基本性质：
+\begin{itemize}
+    \item 对称性：若 $a>b$，则 $b<a$；
+    \item 传递性：若 $a>b$，$b>c$，则 $a>c$；
+    \item 可加性：若 $a>b$，则 $a+c>b+c$；
+    \item 可乘性：若 $a>b$，$c>0$，则 $ac>bc$；若 $a>b$，$c<0$，则 $ac<bc$；
+    \item 同向可加性：若 $a>b$，$c>d$，则 $a+c>b+d$；
+    \item 同向同正可乘性：若 $a>b>0$，$c>d>0$，则 $ac>bd$。
+\end{itemize}
+\end{definition}
+\subsection{比较大小的方法}
+\begin{definition}[作差法比较大小]
+对于两个实数 $a$、$b$：若 $a-b>0$，则 $a>b$；若 $a-b=0$，则 $a=b$；若 $a-b<0$，则 $a<b$。
+\end{definition}
+\begin{theorem}[基本不等式的等价形式]
+若 $a$、$b$ 为正数，则 $\dfrac{2}{\dfrac{1}{a}+\dfrac{1}{b}} \leq \sqrt{ab} \leq \dfrac{a+b}{2} \leq \sqrt{\dfrac{a^2+b^2}{2}}$，当且仅当 $a=b$ 时各等号均成立。
+\end{theorem}
+\begin{corollary}[重要不等式]
+对任意实数 $a$、$b$，都有 $a^2+b^2 \geq 2ab$，当且仅当 $a=b$ 时等号成立。
+\end{corollary}
+
+\section{基本不等式}
+\subsection{基本不等式及其几何意义}
+\begin{definition}[基本不等式]
+若 $a>0$，$b>0$，则 $\sqrt{ab} \leq \dfrac{a+b}{2}$，当且仅当 $a=b$ 时等号成立。其中 $\dfrac{a+b}{2}$ 叫做 $a$、$b$ 的算术平均数，$\sqrt{ab}$ 叫做 $a$、$b$ 的几何平均数。
+\end{definition}
+\subsection{基本不等式的应用}
+\begin{definition}[基本不等式的常用变形]
+由基本不等式可得：$a+b \geq 2\sqrt{ab}$（$a>0$，$b>0$），$ab \leq \left(\dfrac{a+b}{2}\right)^2$（$a$，$b \in \mathbb{R}$），当且仅当 $a=b$ 时等号成立。
+\end{definition}
+
+\section{二次函数与一元二次方程、不等式}
+\subsection{一元二次方程的根与二次函数的图象}
+\begin{definition}[一元二次函数]
+形如 $y=ax^2+bx+c$（$a \neq 0$）的函数叫做一元二次函数，其图象是一条抛物线。
+\end{definition}
+\begin{definition}[一元二次方程的根]
+使一元二次方程 $ax^2+bx+c=0$（$a \neq 0$）成立的实数 $x$ 叫做该方程的根，也叫做相应二次函数图象与 $x$ 轴交点的横坐标。
+\end{definition}
+\subsection{一元二次不等式及其解法}
+\begin{definition}[一元二次不等式]
+只含有一个未知数，并且未知数的最高次数是 $2$ 的不等式叫做一元二次不等式，其一般形式为 $ax^2+bx+c>0$ 或 $ax^2+bx+c<0$（$a \neq 0$）。
+\end{definition}
+\begin{theorem}[韦达定理]
+设一元二次方程 $ax^2+bx+c=0$（$a \neq 0$，$\Delta \geq 0$）的两根为 $x_1$、$x_2$，则 $x_1+x_2=-\dfrac{b}{a}$，$x_1 x_2=\dfrac{c}{a}$。
+\end{theorem}
+\begin{corollary}[一元二次不等式的解集与判别式]
+对于 $ax^2+bx+c>0$（$a>0$）：当 $\Delta>0$ 时解集为 $\{x \mid x<x_1 \text{ 或 } x>x_2\}$；当 $\Delta=0$ 时解集为 $\{x \mid x \neq -\tfrac{b}{2a}\}$；当 $\Delta<0$ 时解集为 $\mathbb{R}$。
+\end{corollary}
+\subsection{一元二次不等式的应用}
+\begin{definition}[一元二次不等式的解法]
+解一元二次不等式 $ax^2+bx+c>0$（$a>0$）：当 $\Delta>0$ 时，解集为 $\{x \mid x<x_1 \text{ 或 } x>x_2\}$；当 $\Delta=0$ 时，解集为 $\{x \mid x \neq x_1\}$；当 $\Delta<0$ 时，解集为 $\mathbb{R}$（其中 $x_1$，$x_2$ 为对应方程的根，$x_1<x_2$）。
+\end{definition}

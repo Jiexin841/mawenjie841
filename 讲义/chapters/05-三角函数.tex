@@ -1,0 +1,105 @@
+% ============================================================
+% 片段文件：第 5 章  三角函数
+% 由主文件 讲义.tex 通过 \input 调用
+% 注意：本文件不含 \chapter，章标题写在主文件里
+% ============================================================
+
+\section{任意角和弧度制}
+\subsection{任意角}
+\begin{definition}[任意角]
+角可以看成平面内一条射线绕着端点从一个位置旋转到另一个位置所成的图形。按逆时针方向旋转形成的角叫做正角，按顺时针方向旋转形成的角叫做负角，没有旋转的角叫做零角。所有与角 $\alpha$ 终边相同的角构成集合 $\{\beta \mid \beta=\alpha+k\cdot 360^\circ,\ k \in \mathbb{Z}\}$。
+\end{definition}
+\subsection{弧度制}
+\begin{definition}[弧度制]
+长度等于半径长的圆弧所对的圆心角叫做 $1$ 弧度的角，记作 $1\ \mathrm{rad}$。用弧度作为单位来度量角的单位制叫做弧度制。
+\end{definition}
+\subsection{角度与弧度的换算}
+\begin{definition}[角度与弧度的换算]
+$180^\circ=\pi\ \mathrm{rad}$，即 $1^\circ=\dfrac{\pi}{180}\ \mathrm{rad}$，$1\ \mathrm{rad}=\left(\dfrac{180}{\pi}\right)^\circ$。弧长公式 $l=|\alpha| r$，扇形面积公式 $S=\dfrac{1}{2}lr=\dfrac{1}{2}|\alpha|r^2$。
+\end{definition}
+
+\section{三角函数的概念}
+\subsection{三角函数的定义}
+\begin{definition}[三角函数的定义]
+设 $\alpha$ 是一个任意角，其终边上任意一点 $P(x,y)$（异于原点），$r=\sqrt{x^2+y^2}$，则定义 $\sin\alpha=\dfrac{y}{r}$，$\cos\alpha=\dfrac{x}{r}$，$\tan\alpha=\dfrac{y}{x}$。
+\end{definition}
+\subsection{三角函数值的符号}
+\begin{definition}[三角函数值的符号]
+三角函数值的符号由角的终边所在象限决定：第一象限全为正；第二象限正弦为正；第三象限正切为正；第四象限余弦为正。
+\end{definition}
+\subsection{同角三角函数的基本关系}
+\begin{definition}[同角三角函数的基本关系]
+$\sin^2\alpha+\cos^2\alpha=1$，$\tan\alpha=\dfrac{\sin\alpha}{\cos\alpha}$（$\alpha \neq k\pi+\dfrac{\pi}{2}$，$k \in \mathbb{Z}$）。
+\end{definition}
+\begin{theorem}[同角关系的常用变形]
+$\sin\alpha+\cos\alpha$、$\sin\alpha-\cos\alpha$、$\sin\alpha\cos\alpha$ 三者知其一可求其余；$(\sin\alpha \pm \cos\alpha)^2=1 \pm 2\sin\alpha\cos\alpha$。
+\end{theorem}
+\begin{corollary}[三角函数值的符号与象限]
+由三角函数值在各象限的符号可以确定角所在的象限，进而由同角关系求出其余三角函数值。
+\end{corollary}
+
+\section{三角函数的诱导公式}
+\subsection{诱导公式的推导}
+\begin{definition}[诱导公式]
+利用角 $2k\pi+\alpha$、$\pi+\alpha$、$-\alpha$、$\pi-\alpha$、$\dfrac{\pi}{2}-\alpha$ 等与角 $\alpha$ 的终边关系，可推出各组诱导公式，其规律可概括为“奇变偶不变，符号看象限”。
+\end{definition}
+\subsection{诱导公式的应用}
+\begin{definition}[诱导公式的应用]
+诱导公式可用于将任意角的三角函数化为锐角的三角函数，进而求值、化简和证明。
+\end{definition}
+
+\section{三角函数的图象与性质}
+\subsection{正弦函数、余弦函数的图象}
+\begin{definition}[正弦函数、余弦函数的图象]
+正弦函数 $y=\sin x$ 和余弦函数 $y=\cos x$ 的图象分别叫做正弦曲线和余弦曲线，可通过“五点法”作出一个周期内的简图。
+\end{definition}
+\subsection{正弦函数、余弦函数的性质}
+\begin{definition}[正弦函数、余弦函数的性质]
+$y=\sin x$ 与 $y=\cos x$ 的定义域均为 $\mathbb{R}$，值域均为 $[-1,1]$，最小正周期均为 $2\pi$。其中 $y=\sin x$ 为奇函数，在 $\left[-\dfrac{\pi}{2}+2k\pi,\dfrac{\pi}{2}+2k\pi\right]$ 上单调递增；$y=\cos x$ 为偶函数，在 $[-\pi+2k\pi,2k\pi]$ 上单调递增（$k \in \mathbb{Z}$）。
+\end{definition}
+\subsection{正切函数的图象与性质}
+\begin{definition}[正切函数的图象与性质]
+正切函数 $y=\tan x$ 的定义域为 $\{x \mid x \neq \dfrac{\pi}{2}+k\pi,\ k \in \mathbb{Z}\}$，值域为 $\mathbb{R}$，最小正周期为 $\pi$，是奇函数，在 $\left(-\dfrac{\pi}{2}+k\pi,\dfrac{\pi}{2}+k\pi\right)$ 上单调递增。
+\end{definition}
+
+\section{函数 \texorpdfstring{$y=A\sin(\omega x+\varphi)$}{y=Asin(ωx+φ)}}
+\subsection{图象变换}
+\begin{definition}[图象变换]
+由 $y=\sin x$ 的图象经过振幅变换（$A$）、周期变换（$\omega$）和相位变换（$\varphi$）可得到 $y=A\sin(\omega x+\varphi)$ 的图象，其中 $A$ 为振幅，$\dfrac{2\pi}{\omega}$ 为周期，$\varphi$ 为初相。
+\end{definition}
+\subsection{性质与应用}
+\begin{definition}[$y=A\sin(\omega x+\varphi)$ 的性质]
+函数 $y=A\sin(\omega x+\varphi)$（$A>0$，$\omega>0$）的定义域为 $\mathbb{R}$，值域为 $[-A,A]$，最小正周期为 $\dfrac{2\pi}{\omega}$，常用于刻画简谐振动等周期现象。
+\end{definition}
+\begin{theorem}[图象的对称性]
+$y=A\sin(\omega x+\varphi)$ 的对称轴方程为 $x=\dfrac{\pi}{2}-\varphi+k\pi$（$k \in \mathbb{Z}$），对称中心为 $\left(\dfrac{k\pi-\varphi}{\omega},0\right)$（$k \in \mathbb{Z}$）。
+\end{theorem}
+\begin{corollary}[五点法]
+作出 $y=A\sin(\omega x+\varphi)$ 一个周期内的图象，可取 $\omega x+\varphi=0$、$\dfrac{\pi}{2}$、$\pi$、$\dfrac{3\pi}{2}$、$2\pi$ 所对应的五个关键点。
+\end{corollary}
+
+\section{三角恒等变换}
+\subsection{两角和与差的正弦、余弦、正切公式}
+\begin{definition}[两角和与差公式]
+$\sin(\alpha \pm \beta)=\sin\alpha\cos\beta \pm \cos\alpha\sin\beta$；$\cos(\alpha \pm \beta)=\cos\alpha\cos\beta \mp \sin\alpha\sin\beta$；$\tan(\alpha \pm \beta)=\dfrac{\tan\alpha \pm \tan\beta}{1 \mp \tan\alpha\tan\beta}$。
+\end{definition}
+\subsection{二倍角公式}
+\begin{definition}[二倍角公式]
+$\sin 2\alpha=2\sin\alpha\cos\alpha$；$\cos 2\alpha=\cos^2\alpha-\sin^2\alpha=2\cos^2\alpha-1=1-2\sin^2\alpha$；$\tan 2\alpha=\dfrac{2\tan\alpha}{1-\tan^2\alpha}$。
+\end{definition}
+\begin{corollary}[降幂与半角公式]
+$\sin^2\alpha=\dfrac{1-\cos 2\alpha}{2}$，$\cos^2\alpha=\dfrac{1+\cos 2\alpha}{2}$，$\sin\alpha\cos\alpha=\dfrac{1}{2}\sin 2\alpha$。
+\end{corollary}
+\subsection{简单的三角恒等变换}
+\begin{definition}[辅助角公式]
+$a\sin x+b\cos x=\sqrt{a^2+b^2}\sin(x+\varphi)$，其中 $\tan\varphi=\dfrac{b}{a}$，常用于化简三角函数式并求其最值。
+\end{definition}
+\begin{theorem}[正弦定理]
+在 $\triangle ABC$ 中，$\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}=2R$，其中 $R$ 为外接圆半径。
+\end{theorem}
+\begin{theorem}[余弦定理]
+在 $\triangle ABC$ 中，$a^2=b^2+c^2-2bc\cos A$，$b^2=a^2+c^2-2ac\cos B$，$c^2=a^2+b^2-2ab\cos C$。
+\end{theorem}
+\begin{corollary}[三角形面积公式]
+$S_{\triangle ABC}=\dfrac{1}{2}ab\sin C=\dfrac{1}{2}bc\sin A=\dfrac{1}{2}ac\sin B$。
+\end{corollary}

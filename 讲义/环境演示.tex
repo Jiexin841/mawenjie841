@@ -1,0 +1,519 @@
+%#############################################################################
+%  环境效果演示文件（standalone，可单独编译，不影响正式讲义）
+%
+%  用途：打开编译后的 PDF，直观查看每个环境长什么样，再决定用哪个。
+%  编译：xelatex 环境演示.tex   （跑两遍，交叉引用才正常）
+%  注意：本文件有自己完整的导言区，与 讲义.tex 互不干扰。
+%#############################################################################
+
+\documentclass[lang=cn,newtx,10pt,scheme=chinese,nofont]{elegantbook}
+
+% ---------- 字体：与 讲义.tex 完全一致 ----------
+\setCJKmainfont{LXGWZhenKaiSlabGB-Regular}[
+  Path = ./,
+  Extension = .ttf,
+  AutoFakeBold = 2.5,
+  ItalicFont = LXGWZhenKaiSlabGB-Regular,
+  ItalicFeatures = {Path=./, Extension=.ttf}
+]
+\setCJKsansfont{SimHei}
+\setCJKmonofont{FangSong}
+\setCJKfamilyfont{zhsong}{LXGWZhenKaiSlabGB-Regular}[Path=./,Extension=.ttf]
+\setCJKfamilyfont{zhhei}{SimHei}
+\setCJKfamilyfont{zhkai}{KaiTi}
+\setCJKfamilyfont{zhfs}{FangSong}
+\newcommand*{\songti}{\CJKfamily{zhsong}}
+\newcommand*{\heiti}{\CJKfamily{zhhei}}
+\newcommand*{\kaishu}{\CJKfamily{zhkai}}
+\newcommand*{\fangsong}{\CJKfamily{zhfs}}
+
+\setmainfont{TeXGyreTermesX}[
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Regular,
+  BoldItalicFont = *-Bold,
+  Extension = .otf,
+  Scale = 1.0
+]
+\xeCJKsetup{AutoFakeSlant=false}
+\AtBeginDocument{%
+  \renewcommand{\em}{\normalfont}%
+  \renewcommand{\emph}[1]{{\normalfont #1}}%
+}
+
+% ---------- 自定义一个新的定理类环境（可选，示范用） ----------
+% 语法：\elegantnewtheorem{环境名}{中文标题}{样式}{标签前缀}
+% 注意：第 4 个参数用花括号 {...}，不是方括号 [...]，写错会报
+%       "No counter '\tcb@cnt@met' defined"
+% 样式可选：thmstyle（绿）、defstyle（蓝）、prostyle（青）
+\elegantnewtheorem{method}{方法}{thmstyle}{met}
+\elegantnewtheorem{trick}{技巧}{prostyle}{tri}
+
+% ---------- 版式微调 ----------
+\setcounter{tocdepth}{2}   % 目录只显示到 section
+
+\title{环境效果演示}
+\subtitle{把 elegantbook 的所有环境排一遍，看效果再挑}
+\author{JIE杰}
+\institute{JIE杰}
+\date{\today}
+\version{0.1}
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+\tableofcontents
+
+\mainmatter
+
+% ============================================================
+\chapter{定理类环境（彩色盒子 + 自动编号）}
+% ============================================================
+
+本章演示 7 个定理类环境。它们都自动编号（1.1、1.2……），
+都用方括号写标题，都有不带编号的星号版本，都可以加标签做交叉引用。
+
+\textbf{颜色说明}（cls 默认 \texttt{color=green}）：
+\texttt{main} 是深绿色，\texttt{second} 是橙红色，\texttt{third} 是青绿色。
+下面按这三个颜色分成三组。
+
+\section{定义、定理、公理}
+
+\begin{definition}[元素]
+元素是构成集合的对象。定义环境是\textbf{深绿色}盒子（\texttt{main}），右下角带 $\clubsuit$。
+\end{definition}
+
+\begin{theorem}[余弦定理]
+在 $\triangle ABC$ 中，$a^2=b^2+c^2-2bc\cos A$。定理环境是\textbf{橙红色}盒子（\texttt{second}），右下角带 $\heartsuit$。
+\end{theorem}
+
+\begin{axiom}[实数的有序性]
+任意两个实数 $a$、$b$，$a>b$、$a=b$、$a<b$ 三种关系中有且仅有一种成立。公理与定理同色（橙红）。
+\end{axiom}
+
+\section{引理、推论、命题、公设}
+
+\begin{lemma}[并集的性质]
+$A \cup B=B \cup A$。引理与定理同色（橙红）。
+\end{lemma}
+
+\begin{corollary}[子集个数]
+含有 $n$ 个元素的集合共有 $2^n$ 个子集。推论与定理同色（橙红）。
+\end{corollary}
+
+\begin{proposition}[对顶角相等]
+两直线相交，对顶角相等。命题环境是\textbf{青绿色}盒子（\texttt{third}），右下角带 $\spadesuit$。
+\end{proposition}
+
+\begin{postulate}[平行公设]
+过直线外一点，有且只有一条直线与已知直线平行。公设与定理同色（橙红）。
+\end{postulate}
+
+\section{星号版本（不编号）}
+
+\begin{definition*}[不编号的定义]
+星号版本不带编号，适合临时补充的说明性定义。
+\end{definition*}
+
+\begin{theorem*}[不编号的定理]
+星号版本同样可以直接用。
+\end{theorem*}
+
+\section{标题的两种写法}
+
+下面两个环境的写法不同，但视觉效果完全相同：
+
+\begin{theorem}[方括号标题]
+用方括号写标题。
+\end{theorem}
+
+\begin{theorem}{花括号标题}
+用花括号写标题，效果一样。
+\end{theorem}
+
+\section{交叉引用}
+
+\begin{definition}[子集]{sub}
+若集合 $A$ 中的任意一个元素都是集合 $B$ 的元素，则称 $A$ 是 $B$ 的子集，记作 $A \subseteq B$。
+\end{definition}
+
+上面这个定义的标签写成 \texttt{\{sub\}}，引用时写 \texttt{\textbackslash ref\{def:sub\}}，
+结果是：\textbf{定义~\ref{def:sub}}。
+
+\textbf{注意}：花括号里只写短名，前缀 \texttt{def:} 由环境自动加。
+如果写成 \texttt{\{def:sub\}}，就会变成 \texttt{def:def:sub}，引用显示“??”。
+
+\textbf{另一种写法}（更接近普通 \LaTeX 习惯）：用 \verb|\label| 代替花括号，
+此时标签就是你写的全部，不加前缀：
+
+\begin{theorem}[另一种标签写法]\label{mythm}
+写法：\verb|\begin{theorem}[标题]\label{mythm} ... \end{theorem}|，
+引用用 \verb|\ref{mythm}|，结果是 \textbf{定理~\ref{mythm}}。
+\end{theorem}
+
+\textbf{关键：必须先给标签，才能引用}。如果不写 \texttt{\{sub\}} 或 \verb|\label{...}|，
+直接 \verb|\ref{def:sub}| 就只会得到“??”。
+
+定理、引理、推论、命题、公理、公设的前缀分别是
+\texttt{thm:}、\texttt{lem:}、\texttt{cor:}、\texttt{pro:}、\texttt{axi:}、\texttt{pos:}。
+
+\section{自定义定理类环境}
+
+导言区里用 \verb|\elegantnewtheorem| 定义了两个新环境，本例中叫“方法”和“技巧”：
+
+\begin{method}[待定系数法]{d1}
+设 $f(x)=ax^2+bx+c$，代入条件解出 $a$、$b$、$c$。
+\end{method}
+
+\begin{trick}[裂项相消]{d2}
+$\dfrac{1}{n(n+1)}=\dfrac{1}{n}-\dfrac{1}{n+1}$。
+\end{trick}
+
+引用方法环境：\textbf{方法~\ref{met:d1}}，引用技巧环境：\textbf{技巧~\ref{tri:d2}}。
+
+注意前缀分别是导言区里填的 \texttt{met} 和 \texttt{tri}，不是环境名。
+
+
+% ============================================================
+\chapter{计数环境（朴素样式，带编号）}
+% ============================================================
+
+这三个环境\textbf{不是彩色盒子}，只是一行加粗标题 + 编号。
+
+\section{例题、练习、问题}
+
+\begin{example}[条（2023 新高考）]
+下列各量中是向量的有（\quad）
+\begin{enumerate}[(1)]
+    \item 质量
+    \item 速度
+    \item 温度
+    \item 位移
+\end{enumerate}
+\end{example}
+
+方括号里的文字会\textbf{原样}接在编号后面，不会自动加括号，
+所以要自己写；不写方括号就只有“例题 2.1”。
+
+\begin{exercise}
+已知 $|\vec{a}|=3$，$|\vec{b}|=4$，$\vec{a} \perp \vec{b}$，求 $|\vec{a}+\vec{b}|$。
+左侧带一支铅笔图标 $\leftarrow$ 就是它。
+\end{exercise}
+
+\begin{problem}
+求证：对任意实数 $x$，$x^2-x+1>0$。
+\end{problem}
+
+注意：这三个环境的标签不用加前缀，直接 \verb|\label{exa:1}| 即可。
+
+
+% ============================================================
+\chapter{无编号环境}
+% ============================================================
+
+\section{note、remark、proof}
+
+\begin{note}
+笔记环境，左侧有一个红色双竖线符号（段落标记）。此环境\textbf{不接受参数}，
+若写成 \verb|\begin{note}{提示}|，那个“提示”会被当作正文排出来。
+\end{note}
+
+\begin{remark}
+注环境，橙色加粗的“注”字，正文不倾斜。适合放补充评述、易错点。
+\end{remark}
+
+\begin{proof}
+证明环境，橙色加粗的“证明”二字，没有结尾的 $\square$ 符号。
+由题意可得 $a^2+b^2 \geq 2ab$，故原式成立。
+\end{proof}
+
+\section{solution}
+
+\begin{solution}
+解环境，绿色加粗的“解”字，正文自动斜体。
+\[
+|\vec{a}+\vec{b}|=\sqrt{|\vec{a}|^2+2\vec{a}\cdot\vec{b}+|\vec{b}|^2}=\sqrt{9+0+16}=5.
+\]
+\end{solution}
+
+\section{assumption、conclusion、property}
+
+\begin{assumption}
+假设环境，\textbf{青绿色}加粗“假设”（\texttt{third}），正文斜体。
+\end{assumption}
+
+\begin{conclusion}
+结论环境，\textbf{青绿色}加粗“结论”，正文斜体。
+\end{conclusion}
+
+\begin{property}
+性质环境，\textbf{青绿色}加粗“性质”，正文斜体。适合排“函数的性质”这类条目。
+\end{property}
+
+\section{custom（唯一必须带花括号参数的）}
+
+\begin{custom}{记忆口诀}
+奇变偶不变，符号看象限。
+\end{custom}
+
+后面这个花括号里的内容就是标题，必须写，不能省略。
+
+\section{嵌套示例}
+
+下面演示 \texttt{example} 嵌在 \texttt{definition} 里的效果（你现有讲义中是这么写的）：
+
+\begin{definition}[集合]
+集合是具有某种共同特征的对象的全体。
+\begin{example}
+数字 1、2、3 是集合 $\{1,2,3\}$ 的元素。
+\end{example}
+\end{definition}
+
+对比一下：把 example 移出来写，视觉上更宽松：
+
+\begin{definition}[集合（另一种写法）]
+集合是具有某种共同特征的对象的全体。
+\end{definition}
+
+\begin{example}
+数字 1、2、3 是集合 $\{1,2,3\}$ 的元素。
+\end{example}
+
+
+% ============================================================
+\chapter{结构类环境}
+% ============================================================
+
+\section{introduction}
+
+\begin{introduction}[本节要点]
+    \item 集合的概念与三种表示法
+    \item 元素与集合的关系
+    \item 常用数集记号
+\end{introduction}
+
+默认标题是“内容提要”，加方括号可以改成任意标题。
+
+\section{problemset}
+
+\begin{problemset}
+    \item 判断下列对象能否构成集合：$\{1, 1, 2\}$。
+    \item 用列举法表示 $\{x \mid x^2=4,\ x \in \mathbb{Z}\}$。
+    \item 写出集合 $\{a,b,c\}$ 的所有子集。
+\end{problemset}
+
+会生成一个居中的装饰性“第4章 练习”标题，然后自动开始编号列表。
+\textbf{内部必须用 \texttt{\textbackslash item}}，否则报错。
+
+\section{change}
+
+\begin{change}
+    \item 初稿，搭建章节框架。
+    \item 补充三角函数一节。
+    \item 修正不等式一章的排版。
+\end{change}
+
+圆圈数字自动生成（①、②、③），所以直接写 \verb|\item| 就行。
+如果想强制写成“0.1”这种版本号，用 \verb|\item[0.1]|，
+但会失去圆圈效果，一般不建议。同样必须用 \verb|\item|。
+
+
+% ============================================================
+\chapter{通用环境（来自已加载的宏包）}
+% ============================================================
+
+\section{列表}
+
+\textbf{1. \texttt{enumitem} 已经加载，标签可自定义}
+
+\begin{enumerate}[(1)]
+    \item 第一项
+    \item 第二项
+\end{enumerate}
+
+\begin{enumerate}[label=$\bullet$, leftmargin=2em]
+    \item 用圆点当标签
+    \item 缩进 2em
+\end{enumerate}
+
+\begin{itemize}[label=$\triangleright$]
+    \item 也可以改 itemize 的符号
+\end{itemize}
+
+\textbf{2. description}
+
+\begin{description}[leftmargin=4em]
+    \item[定义域] 自变量的取值范围。
+    \item[值域] 函数值的集合。
+\end{description}
+
+\section{公式}
+
+\begin{equation}
+    \sin^2\alpha+\cos^2\alpha=1 \label{eq:pyth}
+\end{equation}
+
+\begin{align}
+    \sin(\alpha+\beta) &= \sin\alpha\cos\beta+\cos\alpha\sin\beta \label{eq:sinadd}\\
+    \cos(\alpha+\beta) &= \cos\alpha\cos\beta-\sin\alpha\sin\beta
+\end{align}
+
+分段函数（cases）：
+
+\[
+f(x)=\begin{cases}
+    x^2, & x \geq 0,\\
+    -x,  & x < 0.
+\end{cases}
+\]
+
+矩阵：
+
+\[
+A=\begin{pmatrix} a & b \\ c & d \end{pmatrix}
+\]
+
+引用公式~\eqref{eq:pyth}。
+
+\section{表格}
+
+\textbf{1. booktabs 三线表}
+
+\begin{table}[htbp]
+    \centering
+    \caption{常用的幂函数}
+    \begin{tabular}{ccc}
+        \toprule
+        $y=x^\alpha$ & 定义域 & 奇偶性 \\
+        \midrule
+        $y=x$     & $\mathbb{R}$        & 奇 \\
+        $y=x^2$   & $\mathbb{R}$        & 偶 \\
+        $y=x^{-1}$& $\{x \mid x \neq 0\}$ & 奇 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\textbf{2. makecell 换行、multirow 合并}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \multirow{2}{*}{函数} & \multicolumn{2}{c|}{性质} \\
+        \cline{2-3}
+         & 单调性 & 奇偶性 \\
+        \hline
+        指数函数 & 递增 & \makecell{非奇\\非偶} \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\section{图片}
+
+覆盖图就在 \texttt{figure/cover.jpg}，cls 已把 \texttt{./figure/} 设成自动搜索路径，
+所以文件名不用带目录：
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.25\textwidth]{cover.jpg}
+    \caption{直接写文件名即可找到 figure/ 下的图片}
+    \label{fig:cover}
+\end{figure}
+
+引用图片~\ref{fig:cover}。
+
+\section{代码}
+
+\begin{lstlisting}[language=TeX]
+\begin{definition}[标题]{label}
+    内容
+\end{definition}
+\end{lstlisting}
+
+也可以直接用 \verb|\verb| 排短代码，如 \verb|\input{chapters/01-集合}|。
+
+\section{整段注释}
+
+\texttt{comment} 包已加载，下面这段不会出现在 PDF 里：
+
+\begin{comment}
+这段文字被整体注释掉了。
+即使里面有 \begin{definition} 这种不配对的东西也不会报错。
+\end{comment}
+
+这是注释之后正常排出来的文字。
+
+\section{多栏}
+
+\begin{multicols}{2}
+    这是双栏排版的示例文字，用来测试 \texttt{multicols} 环境。
+    左右各一栏，宽度自动均分，常用于排知识点清单。
+    注意双栏环境内不能放浮动体（figure / table）。
+\end{multicols}
+
+\section{原生的 tcolorbox}
+
+如果盒子样式不够用，可以直接调 tcolorbox：
+
+\begin{tcolorbox}[colback=blue!5, colframe=blue!60!black, title=自定义盒子]
+    这是一个原生 tcolorbox，颜色、标题、边框都能自己调。
+\end{tcolorbox}
+
+
+% ============================================================
+\chapter{排版对照}
+% ============================================================
+
+\section{字体}
+
+正文默认字体：这是霞鹜臻楷。
+
+\textbf{加粗}、\textit{斜体}（已禁用倾斜，显示为正文）、\emph{强调}（同样不倾斜）。
+
+\heiti 黑体：\verb|\heiti| 或 \verb|\textbf| 由伪粗体生成。
+
+\kaishu 楷体：\verb|\kaishu|，用来排古文或说明文字。
+
+\fangsong 仿宋：\verb|\fangsong|。
+
+\tiny 极小 \scriptsize 很小 \footnotesize 小 \small 稍小 \normalsize 正常 \large 大 \Large 更大 \LARGE 很大 \huge 巨大 \Huge 最大
+
+\section{对齐与间距}
+
+默认首行缩进 2 个字符，段间无额外间距。手动换行用 \verb|\\|，
+空一行表示分段。需要强制换行而不分段，用 \verb|\\*| 或在行末加 \verb|%|。
+
+\section{脚注}
+
+这是一个脚注\footnote{脚注缩进、字号都已由 cls 调好。}。
+
+\section{提示框对照表}
+
+\begin{center}
+    \begin{tabular}{llll}
+        \toprule
+        想表达 & 用哪个环境 & 是否编号 & 颜色 \\
+        \midrule
+        给出定义 & \texttt{definition} & 是 & 深绿 \\
+        陈述定理 & \texttt{theorem}    & 是 & 橙红 \\
+        引理推论 & \texttt{lemma} / \texttt{corollary} & 是 & 橙红 \\
+        公理公设 & \texttt{axiom} / \texttt{postulate} & 是 & 橙红 \\
+        命题 & \texttt{proposition} & 是 & 青绿 \\
+        举例 & \texttt{example}      & 是 & 无框 \\
+        练习题 & \texttt{exercise}     & 是 & 无框 \\
+        问题 & \texttt{problem} & 是 & 无框 \\
+        提醒、易错 & \texttt{note}       & 否 & 橙红 \\
+        补充评述 & \texttt{remark}       & 否 & 橙红 \\
+        证明过程 & \texttt{proof}        & 否 & 橙红 \\
+        解答过程 & \texttt{solution}     & 否 & 深绿 \\
+        假设 & \texttt{assumption} & 否 & 青绿 \\
+        一句话结论 & \texttt{conclusion} & 否 & 青绿 \\
+        性质条目 & \texttt{property} & 否 & 青绿 \\
+        自定义小标题 & \texttt{custom} & 否 & 青绿 \\
+        \bottomrule
+    \end{tabular}
+\end{center}
+
+\end{document}

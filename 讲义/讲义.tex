@@ -1,0 +1,94 @@
+\documentclass[lang=cn,newtx,10pt,scheme=chinese,nofont]{elegantbook}
+
+% ============================================================
+% 中文字体设置（nofont 模式下由用户自行定义）
+% 注意：必须使用 XeLaTeX 或 LuaLaTeX 编译
+% 正文字体：霞鹜臻楷（LXGW ZhenKai Slab），仅 Regular 一款
+% ============================================================
+% 主字体（正文）：霞鹜臻楷
+\setCJKmainfont{LXGWZhenKaiSlabGB-Regular}[
+  Path = ./,              % 字体文件与本文件同目录
+  Extension = .ttf,       % 字体为 .ttf 文件
+  AutoFakeBold = 2.5,     % 只有 Regular，自动生成伪粗体
+  ItalicFont = LXGWZhenKaiSlabGB-Regular,  % 斜体仍用同一字体（正文不变斜）
+  ItalicFeatures = {Path=./, Extension=.ttf}
+]
+% 无衬线字体（\sffamily）：用系统黑体
+\setCJKsansfont{SimHei}
+% 等宽字体（\ttfamily）：用系统仿宋
+\setCJKmonofont{FangSong}
+% 字族与常用命令（供 elegantbook 的 \heiti/\kaishu 等使用）
+\setCJKfamilyfont{zhsong}{LXGWZhenKaiSlabGB-Regular}[Path=./,Extension=.ttf]
+\setCJKfamilyfont{zhhei}{SimHei}
+\setCJKfamilyfont{zhkai}{KaiTi}
+\setCJKfamilyfont{zhfs}{FangSong}
+\newcommand*{\songti}{\CJKfamily{zhsong}}
+\newcommand*{\heiti}{\CJKfamily{zhhei}}
+\newcommand*{\kaishu}{\CJKfamily{zhkai}}
+\newcommand*{\fangsong}{\CJKfamily{zhfs}}
+
+% ---------- 取消正文斜体 ----------
+% 1) 西文：斜体也指向正体（Times 正体）
+\setmainfont{TeXGyreTermesX}[
+  UprightFont = *-Regular,
+  BoldFont = *-Bold,
+  ItalicFont = *-Regular,        % 斜体=正体，正文西文不倾斜
+  BoldItalicFont = *-Bold,
+  Extension = .otf,
+  Scale = 1.0
+]
+% 2) 中文：\itshape / \emph 不再倾斜（保持正体）
+\xeCJKsetup{AutoFakeSlant=false}
+% 3) \emph 在中文下也改用正体而非斜体
+\AtBeginDocument{%
+  \renewcommand{\em}{\normalfont}%
+  \renewcommand{\emph}[1]{{\normalfont #1}}%
+}
+
+\title{A版必修一}
+\subtitle{高中数学讲义}
+\author{JIE杰}
+\institute{JIE杰}
+\date{\today}
+\version{0.1}
+
+% 如果有封面和 logo，取消下面注释，并确保图片在 figure/ 下
+ \cover{cover.jpg}
+% \logo{logo-blue.png}
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+\tableofcontents
+
+\mainmatter
+
+% ============================================================
+% 正文：按章用 \input 拼接
+% 新增章节步骤：
+%   1) 在 chapters\ 下新建片段文件，如 chapters\06-平面向量.tex
+%   2) 在下方复制一组 \chapter + \input，改编号和文件名
+%   3) 片段文件内不要写 \chapter、\documentclass、\begin{document}
+% ============================================================
+
+\chapter{集合与常用逻辑用语}
+\input{chapters/01-集合与常用逻辑用语}
+
+\chapter{一元二次函数、方程和不等式}
+\input{chapters/02-一元二次函数、方程和不等式}
+
+\chapter{函数的概念与性质}
+\input{chapters/03-函数的概念与性质}
+
+\chapter{指数函数与对数函数}
+\input{chapters/04-指数函数与对数函数}
+
+\chapter{三角函数}
+\input{chapters/05-三角函数}
+
+%\chapter{平面向量}
+%\input{chapters/00-模板}
+
+\end{document}

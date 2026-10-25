@@ -1,0 +1,87 @@
+% ============================================================
+% 片段文件：第 3 章  函数的概念与性质
+% 由主文件 讲义.tex 通过 \input 调用
+% 注意：本文件不含 \chapter，章标题写在主文件里
+% ============================================================
+
+\section{函数的概念及其表示}
+\subsection{函数的概念}
+\begin{definition}[函数]
+设 $A$、$B$ 是非空实数集，如果按照某种确定的对应关系 $f$，使对于集合 $A$ 中的任意一个数 $x$，在集合 $B$ 中都有唯一确定的数 $y$ 和它对应，那么就称 $f:A \to B$ 为从集合 $A$ 到集合 $B$ 的一个函数，记作 $y=f(x)$，$x \in A$。
+\end{definition}
+\begin{definition}[定义域与值域]
+在函数 $y=f(x)$，$x \in A$ 中，$x$ 叫做自变量，$x$ 的取值范围 $A$ 叫做函数的定义域；与 $x$ 的值相对应的 $y$ 值叫做函数值，函数值的集合 $\{f(x) \mid x \in A\}$ 叫做函数的值域。
+\end{definition}
+\subsection{区间的概念}
+\begin{definition}[区间]
+设 $a$，$b$ 是两个实数，且 $a<b$：
+\begin{itemize}
+    \item 闭区间：$[a,b]=\{x \mid a \leq x \leq b\}$；
+    \item 开区间：$(a,b)=\{x \mid a<x<b\}$；
+    \item 半开半闭区间：$[a,b)=\{x \mid a \leq x<b\}$，$(a,b]=\{x \mid a<x \leq b\}$；
+    \item 无穷区间：$[a,+\infty)=\{x \mid x \geq a\}$，$(-\infty,b]=\{x \mid x \leq b\}$ 等。
+\end{itemize}
+\end{definition}
+\subsection{函数的表示法}
+\begin{definition}[函数的表示法]
+函数常用的表示方法有：解析法（用数学表达式表示）、列表法（用表格表示）和图象法（用图象表示）。
+\end{definition}
+\subsection{分段函数}
+\begin{definition}[分段函数]
+在定义域的不同子集上用不同解析式表示的函数叫做分段函数。
+\end{definition}
+\begin{axiom}[函数相等的判定]
+两个函数相等的充要条件是它们的定义域相同，且对于定义域内任意 $x$，对应的函数值都相等。
+\end{axiom}
+
+\section{函数的基本性质}
+\subsection{单调性与最大（小）值}
+\begin{definition}[增函数与减函数]
+设函数 $f(x)$ 的定义域为 $I$，区间 $D \subseteq I$。若对 $D$ 内任意 $x_1<x_2$，都有 $f(x_1)<f(x_2)$，则称 $f(x)$ 在 $D$ 上单调递增，$D$ 为其单调递增区间；若都有 $f(x_1)>f(x_2)$，则称 $f(x)$ 在 $D$ 上单调递减。
+\end{definition}
+\begin{theorem}[单调性的运算性质]
+设 $f(x)$、$g(x)$ 在区间 $D$ 上单调递增，则 $f(x)+g(x)$ 在 $D$ 上单调递增；若 $f(x)$ 在 $D$ 上单调递增且 $f(x)>0$，则 $\dfrac{1}{f(x)}$ 在 $D$ 上单调递减。
+\end{theorem}
+\begin{definition}[最大值与最小值]
+设函数 $y=f(x)$ 的定义域为 $I$。若存在 $x_0 \in I$，使得对任意 $x \in I$ 都有 $f(x) \leq f(x_0)$，则称 $f(x_0)$ 为 $f(x)$ 的最大值；若都有 $f(x) \geq f(x_0)$，则称 $f(x_0)$ 为最小值。
+\end{definition}
+\subsection{奇偶性}
+\begin{definition}[奇函数与偶函数]
+设函数 $f(x)$ 的定义域关于原点对称。若对定义域内任意 $x$ 都有 $f(-x)=-f(x)$，则 $f(x)$ 为奇函数；若都有 $f(-x)=f(x)$，则 $f(x)$ 为偶函数。
+\end{definition}
+\begin{theorem}[奇偶函数的图象特征]
+奇函数的图象关于原点对称，偶函数的图象关于 $y$ 轴对称；若奇函数 $f(x)$ 在 $x=0$ 处有定义，则 $f(0)=0$。
+\end{theorem}
+\begin{corollary}[奇偶性的运算]
+在公共定义域上：奇函数与奇函数之积为偶函数，偶函数与偶函数之积为偶函数，奇函数与偶函数之积为奇函数。
+\end{corollary}
+\subsection{函数性质的综合应用}
+\begin{definition}[函数性质的综合]
+函数的单调性、奇偶性、周期性等性质常常综合考查，研究函数时需结合定义域、图象等综合分析。
+\end{definition}
+
+\section{幂函数}
+\subsection{幂函数的定义}
+\begin{definition}[幂函数]
+一般地，形如 $y=x^\alpha$（$\alpha$ 为常数）的函数叫做幂函数。
+\end{definition}
+\begin{theorem}[幂函数过定点]
+$y=x^\alpha$ 的图象过点 $(1,1)$，当 $\alpha<0$ 时图象还过点 $(1,1)$ 附近且不过原点。
+\end{theorem}
+\begin{corollary}[幂函数 $y=x^\alpha$ 在 $(0,+\infty)$ 上的单调性]
+当 $\alpha>0$ 时，$y=x^\alpha$ 在 $(0,+\infty)$ 上单调递增；当 $\alpha<0$ 时，$y=x^\alpha$ 在 $(0,+\infty)$ 上单调递减。
+\end{corollary}
+\subsection{常见幂函数的图象与性质}
+\begin{definition}[常见幂函数的性质]
+常见的幂函数 $y=x$、$y=x^2$、$y=x^3$、$y=x^{\frac{1}{2}}$、$y=x^{-1}$ 的图象均过点 $(1,1)$，其定义域、值域、单调性和奇偶性随指数 $\alpha$ 的不同而不同。
+\end{definition}
+
+\section{函数的应用}
+\subsection{函数模型及其应用}
+\begin{definition}[函数模型]
+用函数刻画实际问题中变量之间依赖关系的数学表达式叫做函数模型。
+\end{definition}
+\subsection{用函数模型解决实际问题}
+\begin{definition}[用函数模型解题]
+用函数模型解决实际问题的一般步骤：审题、建模、求解、检验、作答。
+\end{definition}
